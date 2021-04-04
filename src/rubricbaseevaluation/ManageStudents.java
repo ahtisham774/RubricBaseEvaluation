@@ -38,6 +38,7 @@ public class ManageStudents extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Manage Students");
         setUndecorated(true);
 
         jPanel3.setBackground(new java.awt.Color(204, 204, 255));
