@@ -126,6 +126,7 @@ public class ManageStudents extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Segoe Print", 0, 11)); // NOI18N
         jLabel6.setText("Gender");
 
+        jRadioButton1.setBackground(new java.awt.Color(255, 255, 255));
         buttonGroup1.add(jRadioButton1);
         jRadioButton1.setFont(new java.awt.Font("Segoe Print", 0, 11)); // NOI18N
         jRadioButton1.setText("Male");
@@ -136,6 +137,7 @@ public class ManageStudents extends javax.swing.JFrame {
             }
         });
 
+        jRadioButton2.setBackground(new java.awt.Color(255, 255, 255));
         buttonGroup1.add(jRadioButton2);
         jRadioButton2.setFont(new java.awt.Font("Segoe Print", 0, 11)); // NOI18N
         jRadioButton2.setText("Female");
@@ -144,11 +146,13 @@ public class ManageStudents extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Segoe Print", 0, 11)); // NOI18N
         jLabel7.setText("Category");
 
+        jRadioButton3.setBackground(new java.awt.Color(255, 255, 255));
         buttonGroup2.add(jRadioButton3);
         jRadioButton3.setFont(new java.awt.Font("Segoe Print", 0, 11)); // NOI18N
         jRadioButton3.setText("A1");
         jRadioButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
+        jRadioButton4.setBackground(new java.awt.Color(255, 255, 255));
         buttonGroup2.add(jRadioButton4);
         jRadioButton4.setFont(new java.awt.Font("Segoe Print", 0, 11)); // NOI18N
         jRadioButton4.setText("A2");

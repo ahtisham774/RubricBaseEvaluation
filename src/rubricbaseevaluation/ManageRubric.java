@@ -112,6 +112,7 @@ public class ManageRubric extends javax.swing.JFrame {
             }
         });
 
+        jButton3.setBackground(new java.awt.Color(255, 255, 255));
         jButton3.setFont(new java.awt.Font("Segoe Print", 0, 11)); // NOI18N
         jButton3.setText("Ok");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
