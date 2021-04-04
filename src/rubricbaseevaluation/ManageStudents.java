@@ -248,6 +248,11 @@ public class ManageStudents extends javax.swing.JFrame {
         button1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         button1.setFont(new java.awt.Font("Segoe Print", 0, 12)); // NOI18N
         button1.setLabel("Next");
+        button1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -309,6 +314,13 @@ public class ManageStudents extends javax.swing.JFrame {
         ViewStudents view = new ViewStudents();
         view.setVisible(true);
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void button1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button1ActionPerformed
+        // TODO add your handling code here:
+        this.hide();
+        MarksEvaluation evaluation = new MarksEvaluation();
+        evaluation.setVisible(true);
+    }//GEN-LAST:event_button1ActionPerformed
 
     /**
      * @param args the command line arguments
