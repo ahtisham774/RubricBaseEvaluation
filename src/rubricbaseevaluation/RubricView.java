@@ -5,7 +5,11 @@
  */
 package rubricbaseevaluation;
 
+import java.util.ArrayList;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableCellRenderer;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -16,9 +20,30 @@ public class RubricView extends javax.swing.JFrame {
     /**
      * Creates new form RubricView
      */
+    private int sum = 0 ;
+    
+    DefaultTableModel model ;
+    
     public RubricView() {
         initComponents();
         this.setLocationRelativeTo(null);
+        model = new DefaultTableModel();
+     
+      
+        model.addColumn("");
+        model.addColumn("");
+        Object label [] = {"Type","Total Marks"};
+        model.addRow(label);
+        Object first_Row []={Teacher.getInstance().getAssessment().getAssessment_type(),Teacher.getInstance().getAssessment().getTotal_marks()}; 
+       
+        Object rubric [] = {"Rubric","Components Marks"};
+       
+        model.addRow(first_Row);
+        model.addRow(rubric);
+        jTable1.setModel(model);
+        addRowData(Teacher.getInstance().getAssessment());
+        
+        jTable1.setEnabled(false);
     }
 
     /**
@@ -99,7 +124,7 @@ public class RubricView extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Rubric", "Compunent Marks"
+
             }
         ));
         jScrollPane1.setViewportView(jTable1);
@@ -117,8 +142,8 @@ public class RubricView extends javax.swing.JFrame {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(36, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 261, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         jButton3.setBackground(new java.awt.Color(255, 255, 255));
@@ -178,18 +203,46 @@ public class RubricView extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        this.hide();
+        int i = JOptionPane.showConfirmDialog(null,"Do you want To Exit the program","Confirm", 0, 1);
+        if(i == 0){
+         System.exit(0);
+        }
+       
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-        ManageRubric rubric = new ManageRubric();
-        rubric.jLabel4.hide();
-        rubric.jTextField3.hide();
-        this.hide();
-        rubric.setVisible(true);
+        
+       
+        if(sum == Teacher.getInstance().getAssessment().getTotal_marks()) {
+         JOptionPane.showConfirmDialog(null, sum);
+         ManageStudents student = new ManageStudents();
+         this.setVisible(false);
+         student.setVisible(true);
+        }
+        
+        ManageAssesments assesment = new ManageAssesments();
+        assesment.jTextField1.setEnabled(false);
+        assesment.jTextField2.setEnabled(false);
+        assesment.jLabel6.setEnabled(false);
+        this.setVisible(false);
+        assesment.setVisible(true);
     }//GEN-LAST:event_jButton3ActionPerformed
-
+   public void addRowData(Assesments assesment){
+       
+        int size = Teacher.getInstance().getAssessment().getComponent_marks().size();
+         for(int i = 0 ; i < size;i++){
+        sum = sum + Teacher.getInstance().getAssessment().getComponent_marks().get(i);
+        }
+        sum =  (assesment.getTotal_marks()- sum) ;
+       
+      Object rowData[] = new Object[2];
+      for(int i = 0 ; i < assesment.getComponent_marks().size();i++ ){
+        rowData[0] = assesment.getRubrics().get(i);
+        rowData[1] = assesment.getComponent_marks().get(i) + "         remaining marks "+sum;
+        model.addRow(rowData);
+      }
+   }
     /**
      * @param args the command line arguments
      */

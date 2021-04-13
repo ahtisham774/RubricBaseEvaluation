@@ -5,7 +5,10 @@
  */
 package rubricbaseevaluation;
 
+import java.util.ArrayList;
+import java.util.regex.Pattern;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -16,11 +19,32 @@ public class LoginFrame extends javax.swing.JFrame {
     /**
      * Creates new form LoginFrame
      */
+       boolean is_Correct = false ;
+        ArrayList<String> emailList = new ArrayList<>();
+        ArrayList<String> passwordList = new ArrayList<>();
     public LoginFrame() {
         initComponents();
         this.setLocationRelativeTo(null);
          jLabel3.setText("");
         jLabel5.setText("");
+        jLabel6.setText("");
+        jComboBox1.setVisible(false);
+         emailList.add("samyanwahala@gmail.com");
+         passwordList.add("samyan1234");
+        emailList.add("aftab.shoukat14@yahoo.com");
+        passwordList.add("aftab1234");
+        emailList.add("hinasamr@gmail.com");
+        passwordList.add("hina1234");
+        emailList.add("rubina@uet.edu.pk");
+        passwordList.add("rubina1234");
+        emailList.add("sadia@uet.edu.pk");
+        passwordList.add("sadia1234");
+        emailList.add("yasir@uet.edu.pk");
+        passwordList.add("samyan1234");
+        emailList.add("rajamuzammil93@gmail.com");
+        passwordList.add("muzammil1234");
+        emailList.add("sohail.rashid@uet.edu.pk");
+        passwordList.add("sohail1234");
     }
 
     /**
@@ -45,6 +69,8 @@ public class LoginFrame extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jCheckBox1 = new javax.swing.JCheckBox();
         jButton3 = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
+        jComboBox1 = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Login");
@@ -104,13 +130,25 @@ public class LoginFrame extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel2.setFont(new java.awt.Font("Segoe Print", 0, 12)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
         jLabel2.setText("Email");
+
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
 
         jLabel3.setText("jLabel3");
 
-        jLabel4.setFont(new java.awt.Font("Segoe Print", 0, 12)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
         jLabel4.setText("Password");
+
+        jPasswordField1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPasswordField1MouseClicked(evt);
+            }
+        });
 
         jLabel5.setText("jLabel5");
 
@@ -133,54 +171,56 @@ public class LoginFrame extends javax.swing.JFrame {
             }
         });
 
+        jLabel6.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
+        jLabel6.setText("jlabel6");
+
+        jComboBox1.setFont(new java.awt.Font("Segoe Print", 0, 11)); // NOI18N
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel4)
-                        .addGap(198, 198, 198))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButton3)
-                        .addGap(21, 21, 21))))
+                .addGap(0, 350, Short.MAX_VALUE)
+                .addComponent(jButton3)
+                .addGap(21, 21, 21))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(79, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel6)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel2)
                     .addComponent(jCheckBox1)
                     .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jPasswordField1, javax.swing.GroupLayout.DEFAULT_SIZE, 248, Short.MAX_VALUE)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 248, Short.MAX_VALUE)
+                    .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(105, 105, 105))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(183, 183, 183)
-                .addComponent(jLabel2)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(26, 26, 26)
                 .addComponent(jLabel2)
-                .addGap(18, 18, 18)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel3)
-                .addGap(30, 30, 30)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel4)
-                .addGap(18, 18, 18)
-                .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel5)
-                .addGap(18, 18, 18)
-                .addComponent(jCheckBox1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jCheckBox1)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel6)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(23, 23, 23)
                 .addComponent(jButton3)
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -228,11 +268,83 @@ public class LoginFrame extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-        this.hide();
-        ManageCLOs clos = new ManageCLOs();
-        clos.setVisible(true);
+     
+       
+         for(int i = 0 ; i < passwordList.size();i++){
+        if(jPasswordField1.getPassword().equals(passwordList.get(i))){
+        is_Correct = true ;
+        break ;
+        
+        }
+        }
+        if(is_Correct){
+             jLabel5.setText("");
+            /* this.hide();
+            ManageCLOs clos = new ManageCLOs();
+            clos.setVisible(true); */
+                 }
+                else{
+                
+                   jLabel5.setText("Invalid Password");
+                }
+                 String  selected_ID = jComboBox1.getSelectedItem().toString();
+                 if(selected_ID.equals("CS-162")){
+                  Teacher.getInstance().setCourse_ID(selected_ID);
+                  Teacher.getInstance().setCourse_Title("Object Oriented Programming");
+                 }
+                 else{
+                   Teacher.getInstance().setCourse_ID(selected_ID);
+                  Teacher.getInstance().setCourse_Title("Object Oriented Programming Lab");
+                 }
+            
+           
+                JOptionPane.showMessageDialog(null,Teacher.getInstance().getCourse_ID());
+                JOptionPane.showMessageDialog(null,Teacher.getInstance().getCourse_Title());
+        /*if(!(Pattern.matches("^[a-zA-Z0-9]+[@]+[a-zA-Z0-9]+[.]+[a-zA-Z0-9]+[.]+[a-zA-Z0-9]+[.]+[a-zA-Z0-9]+$",jTextField1.getText()))){
+        JOptionPane.showMessageDialog(null, "Invalid email", "Alert", 2);
+        }
+        else{
+        JOptionPane.showMessageDialog(null, "valid email", "Congratulations!!!", 1);
+        }*/
+     
         
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+      
+    }//GEN-LAST:event_jTextField1ActionPerformed
+
+    private void jPasswordField1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPasswordField1MouseClicked
+        // TODO add your handling code here:
+         for(int i = 0 ; i < emailList.size();i++){
+        if(jTextField1.getText().equals(emailList.get(i))){
+        is_Correct = true ;
+        break ;
+        
+        }
+        }
+        if(is_Correct){
+            jLabel3.setText("");
+            /* this.hide();
+            ManageCLOs clos = new ManageCLOs();
+            clos.setVisible(true); */
+                 }
+                else{
+                
+                   jLabel3.setText("Invalid Email");
+                }
+         if(jTextField1.getText().equals("samyanwahala@gmail.com")){
+           jLabel6.setText("Course ID");
+           
+           jComboBox1.addItem("CS-162");
+           jComboBox1.addItem("CS-162L");
+           jComboBox1.setVisible(true);
+          
+           
+         }
+        
+    }//GEN-LAST:event_jPasswordField1MouseClicked
 
     /**
      * @param args the command line arguments
@@ -274,11 +386,13 @@ public class LoginFrame extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JCheckBox jCheckBox1;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPasswordField jPasswordField1;

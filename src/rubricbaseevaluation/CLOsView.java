@@ -5,7 +5,10 @@
  */
 package rubricbaseevaluation;
 
+import java.util.ArrayList;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -16,9 +19,16 @@ public class CLOsView extends javax.swing.JFrame {
     /**
      * Creates new form CLOsView
      */
+    DefaultTableModel model ;
     public CLOsView() {
         initComponents();
         this.setLocationRelativeTo(null);
+        model = new DefaultTableModel();
+        model.addColumn("Type");      
+        model.addColumn("Desciption");
+        jTable1.setModel(model);
+        addRowData(Teacher.getInstance().getClosList());
+        jTable1.setEnabled(false);
     }
 
     /**
@@ -100,7 +110,7 @@ public class CLOsView extends javax.swing.JFrame {
 
             },
             new String [] {
-                "CLOs", "Description"
+
             }
         ));
         jTable1.setGridColor(new java.awt.Color(255, 255, 255));
@@ -176,7 +186,11 @@ public class CLOsView extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        this.hide();
+        int i = JOptionPane.showConfirmDialog(null,"Do you want To Exit the program","Confirm", 0, 1);
+        if(i == 0){
+         System.exit(0);
+        }
+       
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -185,7 +199,17 @@ public class CLOsView extends javax.swing.JFrame {
         ManageCLOs clos = new ManageCLOs();
         clos.setVisible(true);
     }//GEN-LAST:event_jButton3ActionPerformed
-
+    public void addRowData(ArrayList<CLOs> c){
+        Object rowData[] = new Object[2];
+        for(int i =  0 ; i < c.size();i++){
+          rowData[0] = c.get(i).getType();
+          rowData[1] = c.get(i).getDecription();
+          model.addRow(rowData);
+          
+        }
+     
+    
+    }
     /**
      * @param args the command line arguments
      */

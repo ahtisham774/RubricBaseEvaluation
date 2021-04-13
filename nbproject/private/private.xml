@@ -4,11 +4,12 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/D:/RubricBaseEvaluation/src/rubricbaseevaluation/LoginFrame.java</file>
-            <file>file:/D:/RubricBaseEvaluation/src/rubricbaseevaluation/ManageRubric.java</file>
             <file>file:/D:/RubricBaseEvaluation/src/rubricbaseevaluation/RubricView.java</file>
             <file>file:/D:/RubricBaseEvaluation/src/rubricbaseevaluation/CLOsView.java</file>
             <file>file:/D:/RubricBaseEvaluation/src/rubricbaseevaluation/ManageCLOs.java</file>
-            <file>file:/D:/RubricBaseEvaluation/src/rubricbaseevaluation/ManageStudents.java</file>
+            <file>file:/D:/RubricBaseEvaluation/src/rubricbaseevaluation/Teacher.java</file>
+            <file>file:/D:/RubricBaseEvaluation/src/rubricbaseevaluation/Assesments.java</file>
+            <file>file:/D:/RubricBaseEvaluation/src/rubricbaseevaluation/ManageAssesments.java</file>
         </group>
     </open-files>
 </project-private>
