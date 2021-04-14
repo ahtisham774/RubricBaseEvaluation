@@ -13,6 +13,15 @@ import java.util.ArrayList;
  */
 public class Assesments {
     private String assessment_type ;
+    private String clos ;
+
+    public String getClos() {
+        return clos;
+    }
+
+    public void setClos(String clos) {
+        this.clos = clos;
+    }
     private int total_marks ;
       private ArrayList<String> rubrics = new ArrayList<>();
     private ArrayList<Integer> component_marks = new ArrayList<>();

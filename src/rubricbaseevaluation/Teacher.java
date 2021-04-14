@@ -110,6 +110,15 @@ public class Teacher {
       }
       return index ;
     }
+
+ 
+   public Assesments searchAssesment(String type){
+       int index = assessmentList.indexOf(type);
+       if(index != -1){
+       return assessmentList.get(index);
+       }
+       return null ;
+   }
     public Students seearchStudent(String id){
       int index = searchStudentId(id);
       if(index != -1){

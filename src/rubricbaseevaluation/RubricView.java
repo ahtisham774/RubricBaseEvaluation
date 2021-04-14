@@ -23,9 +23,10 @@ public class RubricView extends javax.swing.JFrame {
     private int sum = 0 ;
     
     DefaultTableModel model ;
-    
+    private static int assesment_Index = -1 ; // for assessment number 
     public RubricView() {
         initComponents();
+        assesment_Index++;
         this.setLocationRelativeTo(null);
         model = new DefaultTableModel();
      
@@ -34,15 +35,16 @@ public class RubricView extends javax.swing.JFrame {
         model.addColumn("");
         Object label [] = {"Type","Total Marks"};
         model.addRow(label);
-        Object first_Row []={Teacher.getInstance().getAssessment().getAssessment_type(),Teacher.getInstance().getAssessment().getTotal_marks()}; 
+        if(assesment_Index != -1){
+        Object first_Row []={Teacher.getInstance().getAssessmentList().get(assesment_Index).getAssessment_type(),Teacher.getInstance().getAssessmentList().get(assesment_Index).getTotal_marks()}; 
        
         Object rubric [] = {"Rubric","Components Marks"};
        
         model.addRow(first_Row);
         model.addRow(rubric);
         jTable1.setModel(model);
-        addRowData(Teacher.getInstance().getAssessment());
-        
+        addRowData(Teacher.getInstance().getAssessmentList());
+        }
         jTable1.setEnabled(false);
     }
 
@@ -215,31 +217,38 @@ public class RubricView extends javax.swing.JFrame {
         
        
         if(sum == Teacher.getInstance().getAssessment().getTotal_marks()) {
-         JOptionPane.showConfirmDialog(null, sum);
-         ManageStudents student = new ManageStudents();
-         this.setVisible(false);
-         student.setVisible(true);
+         
+          ManageStudents student = new ManageStudents();
+          this.setVisible(false);
+          student.setVisible(true);
         }
-        
+        else{
         ManageAssesments assesment = new ManageAssesments();
         assesment.jTextField1.setEnabled(false);
         assesment.jTextField2.setEnabled(false);
         assesment.jLabel6.setEnabled(false);
+        assesment.closComboBox.setEnabled(false);
         this.setVisible(false);
         assesment.setVisible(true);
-    }//GEN-LAST:event_jButton3ActionPerformed
-   public void addRowData(Assesments assesment){
-       
-        int size = Teacher.getInstance().getAssessment().getComponent_marks().size();
-         for(int i = 0 ; i < size;i++){
-        sum = sum + Teacher.getInstance().getAssessment().getComponent_marks().get(i);
         }
-        sum =  (assesment.getTotal_marks()- sum) ;
+    }//GEN-LAST:event_jButton3ActionPerformed
+   public void addRowData(ArrayList<Assesments> assesment){
+       
+        int size = Teacher.getInstance().getAssessmentList().get(assesment_Index).getComponent_marks().size();
+         for(int i = 0 ; i < size;i++){
+        sum = sum + Teacher.getInstance().getAssessmentList().get(assesment_Index).getComponent_marks().get(i);
+        }
+           
        
       Object rowData[] = new Object[2];
-      for(int i = 0 ; i < assesment.getComponent_marks().size();i++ ){
-        rowData[0] = assesment.getRubrics().get(i);
-        rowData[1] = assesment.getComponent_marks().get(i) + "         remaining marks "+sum;
+      
+      
+      rowData[1] = "Remaing marks "+(assesment.get(assesment_Index).getTotal_marks()- sum);
+      model.addRow(rowData);
+      for(int i = 0 ; i < assesment.get(assesment_Index).getComponent_marks().size();i++ ){
+          
+        rowData[0] = assesment.get(assesment_Index).getRubrics().get(i);
+        rowData[1] = assesment.get(assesment_Index).getComponent_marks().get(i) ;
         model.addRow(rowData);
       }
    }

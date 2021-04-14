@@ -279,9 +279,7 @@ public class LoginFrame extends javax.swing.JFrame {
         }
         if(is_Correct){
              jLabel5.setText("");
-            /* this.hide();
-            ManageCLOs clos = new ManageCLOs();
-            clos.setVisible(true); */
+          
                  }
                 else{
                 
@@ -297,9 +295,10 @@ public class LoginFrame extends javax.swing.JFrame {
                   Teacher.getInstance().setCourse_Title("Object Oriented Programming Lab");
                  }
             
-           
-                JOptionPane.showMessageDialog(null,Teacher.getInstance().getCourse_ID());
-                JOptionPane.showMessageDialog(null,Teacher.getInstance().getCourse_Title());
+              this.hide();
+            ManageCLOs clos = new ManageCLOs();
+            clos.setVisible(true); 
+               
         /*if(!(Pattern.matches("^[a-zA-Z0-9]+[@]+[a-zA-Z0-9]+[.]+[a-zA-Z0-9]+[.]+[a-zA-Z0-9]+[.]+[a-zA-Z0-9]+$",jTextField1.getText()))){
         JOptionPane.showMessageDialog(null, "Invalid email", "Alert", 2);
         }

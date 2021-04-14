@@ -275,8 +275,11 @@ public class ManageCLOs extends javax.swing.JFrame {
     private void button1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button1ActionPerformed
         // TODO add your handling code here:
         this.setVisible(false);
-        ManageRubric rubric = new ManageRubric();
-        rubric.setVisible(true);
+        ManageAssesments assesment = new ManageAssesments();
+        for(int i = 0 ; i < Teacher.getInstance().getClosList().size();i++){
+         assesment.closComboBox.addItem(Teacher.getInstance().getClosList().get(i).getType());
+        }
+        assesment.setVisible(true);
     }//GEN-LAST:event_button1ActionPerformed
 
     private void jTextArea1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextArea1MouseClicked

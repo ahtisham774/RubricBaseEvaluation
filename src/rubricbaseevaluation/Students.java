@@ -5,6 +5,8 @@
  */
 package rubricbaseevaluation;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Ahtisham Ul Haq
@@ -17,6 +19,15 @@ public class Students {
      private String gender ;
      private String category ;
      private String section ;
+     private ArrayList<Integer> obtain_marks = new ArrayList<>();
+
+    public ArrayList<Integer> getObtain_marks() {
+        return obtain_marks;
+    }
+
+    public void setObtain_marks(int obtain_marks) {
+        this.obtain_marks.add(obtain_marks);
+    }
 
     public String getStudent_name() {
         return student_name;
