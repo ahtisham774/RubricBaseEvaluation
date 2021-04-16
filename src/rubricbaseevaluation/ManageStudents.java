@@ -330,16 +330,16 @@ public class ManageStudents extends javax.swing.JFrame {
         String std_name = name.getText();
         String fthr_name = fname.getText();
         String regNO = jTextField3.getText();
-        
+
         String date_of_Birth = "";
         SimpleDateFormat sdf = null;
         try {
-            
+
             sdf = new SimpleDateFormat("dd-MM-yyyy");
             date_of_Birth = sdf.format(DateChooser.getDate());
         } catch (Exception ex) {
         }
-        
+
         String section = "";
         if (secComboBox.getSelectedIndex() != 0) {
             section = secComboBox.getSelectedItem().toString();
@@ -360,11 +360,11 @@ public class ManageStudents extends javax.swing.JFrame {
         } else {
             category = "";
         }
-        
+
         if ((std_name.equals("")) || (fthr_name.equals("")) || (regNO.equals("") || (date_of_Birth.equals("")))
                 || (section.equals("")) || (gender.equals("")) || (category.equals(""))) {
             JOptionPane.showMessageDialog(null, "Empty Field", "Warning", 0);
-            
+
         } else {
             Students studentData = new Students();
             studentData.setStudent_name(std_name);
@@ -375,11 +375,11 @@ public class ManageStudents extends javax.swing.JFrame {
             studentData.setSection(section);
             studentData.setCategory(category);
             Teacher.getInstance().addStudents(studentData);
-             this.setVisible(false);/*
+            this.setVisible(false);
             ViewStudents view = new ViewStudents();
-            view.setVisible(true);*/
-             MarksEvaluation  marks = new MarksEvaluation();
-             marks.setVisible(true);
+            view.setVisible(true);
+            /* MarksEvaluation  marks = new MarksEvaluation();
+             marks.setVisible(true);*/
         }
 
     }//GEN-LAST:event_jButton3ActionPerformed

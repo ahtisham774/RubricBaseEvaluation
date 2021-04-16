@@ -12,8 +12,9 @@ import java.util.ArrayList;
  * @author Ahtisham Ul Haq
  */
 public class Assesments {
-    private String assessment_type ;
-    private String clos ;
+
+    private String assessment_type;
+    private String clos;
 
     public String getClos() {
         return clos;
@@ -22,11 +23,12 @@ public class Assesments {
     public void setClos(String clos) {
         this.clos = clos;
     }
-    private int total_marks ;
-      private ArrayList<String> rubrics = new ArrayList<>();
+    private int total_marks;
+    private ArrayList<String> rubrics = new ArrayList<>();
     private ArrayList<Integer> component_marks = new ArrayList<>();
-  private String rubric ;
-  private int component_Marks ;
+    private String rubric;
+    private int component_Marks;
+
     public String getAssessment_type() {
         return assessment_type;
     }
@@ -43,20 +45,20 @@ public class Assesments {
         this.total_marks = total_marks;
     }
 
-     public ArrayList<String> getRubrics() {
-    return rubrics;
+    public ArrayList<String> getRubrics() {
+        return this.rubrics;
     }
 
-     public void addRubrics(String rubrics) {
-    this.rubrics.add(rubrics);
-     }
-
-     public ArrayList<Integer> getComponent_marks() {
-    return component_marks;
+    public void addRubrics(String rubrics) {
+        this.rubrics.add(rubrics);
     }
 
-      public void addComponent_marks(int component_marks) {
-    this.component_marks.add(component_marks);
+    public ArrayList<Integer> getComponent_marks() {
+        return component_marks;
+    }
+
+    public void addComponent_marks(int component_marks) {
+        this.component_marks.add(component_marks);
     }
 
     public String getRubric() {

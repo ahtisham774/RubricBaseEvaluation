@@ -19,18 +19,19 @@ public class LoginFrame extends javax.swing.JFrame {
     /**
      * Creates new form LoginFrame
      */
-       boolean is_Correct = false ;
-        ArrayList<String> emailList = new ArrayList<>();
-        ArrayList<String> passwordList = new ArrayList<>();
+    boolean is_Correct = false;
+    ArrayList<String> emailList = new ArrayList<>();
+    ArrayList<String> passwordList = new ArrayList<>();
+
     public LoginFrame() {
         initComponents();
         this.setLocationRelativeTo(null);
-         jLabel3.setText("");
+        jLabel3.setText("");
         jLabel5.setText("");
         jLabel6.setText("");
         jComboBox1.setVisible(false);
-         emailList.add("samyanwahala@gmail.com");
-         passwordList.add("samyan1234");
+        emailList.add("samyanwahala@gmail.com");
+        passwordList.add("samyan1234");
         emailList.add("aftab.shoukat14@yahoo.com");
         passwordList.add("aftab1234");
         emailList.add("hinasamr@gmail.com");
@@ -45,6 +46,8 @@ public class LoginFrame extends javax.swing.JFrame {
         passwordList.add("muzammil1234");
         emailList.add("sohail.rashid@uet.edu.pk");
         passwordList.add("sohail1234");
+        emailList.add("kashifali@uet.edu.pk");
+        passwordList.add("kashif1234");
     }
 
     /**
@@ -132,12 +135,6 @@ public class LoginFrame extends javax.swing.JFrame {
 
         jLabel2.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
         jLabel2.setText("Email");
-
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
-            }
-        });
 
         jLabel3.setText("jLabel3");
 
@@ -248,7 +245,7 @@ public class LoginFrame extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        
+
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
@@ -258,91 +255,118 @@ public class LoginFrame extends javax.swing.JFrame {
 
     private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
         // TODO add your handling code here:
-        if(jCheckBox1.isSelected()){
-           jPasswordField1.setEchoChar((char)0);
-        }
-        else{
-          jPasswordField1.setEchoChar('*');
+        if (jCheckBox1.isSelected()) {
+            jPasswordField1.setEchoChar((char) 0);
+        } else {
+            jPasswordField1.setEchoChar('*');
         }
     }//GEN-LAST:event_jCheckBox1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-     
-       
-         for(int i = 0 ; i < passwordList.size();i++){
-        if(jPasswordField1.getPassword().equals(passwordList.get(i))){
-        is_Correct = true ;
-        break ;
-        
+
+        for (int i = 0; i < passwordList.size(); i++) {
+            if (jPasswordField1.getPassword().equals(passwordList.get(i))) {
+                is_Correct = true;
+                break;
+
+            }
         }
+        if (is_Correct) {
+            jLabel5.setText("");
+
+        } else {
+
+            jLabel5.setText("Invalid Password");
         }
-        if(is_Correct){
-             jLabel5.setText("");
-          
-                 }
-                else{
-                
-                   jLabel5.setText("Invalid Password");
-                }
-                 String  selected_ID = jComboBox1.getSelectedItem().toString();
-                 if(selected_ID.equals("CS-162")){
-                  Teacher.getInstance().setCourse_ID(selected_ID);
-                  Teacher.getInstance().setCourse_Title("Object Oriented Programming");
-                 }
-                 else{
-                   Teacher.getInstance().setCourse_ID(selected_ID);
-                  Teacher.getInstance().setCourse_Title("Object Oriented Programming Lab");
-                 }
-            
-              this.hide();
-            ManageCLOs clos = new ManageCLOs();
-            clos.setVisible(true); 
-               
+        String selected_ID = jComboBox1.getSelectedItem().toString();
+        if (selected_ID.equals("CS-162")) {
+            Teacher.getInstance().setCourse_ID(selected_ID);
+            Teacher.getInstance().setCourse_Title("Object Oriented Programming");
+        } else {
+            Teacher.getInstance().setCourse_ID(selected_ID);
+            Teacher.getInstance().setCourse_Title("Object Oriented Programming Lab");
+        }
+
+        this.hide();
+        ManageCLOs clos = new ManageCLOs();
+        clos.setVisible(true);
+
         /*if(!(Pattern.matches("^[a-zA-Z0-9]+[@]+[a-zA-Z0-9]+[.]+[a-zA-Z0-9]+[.]+[a-zA-Z0-9]+[.]+[a-zA-Z0-9]+$",jTextField1.getText()))){
         JOptionPane.showMessageDialog(null, "Invalid email", "Alert", 2);
         }
         else{
         JOptionPane.showMessageDialog(null, "valid email", "Congratulations!!!", 1);
         }*/
-     
-        
-    }//GEN-LAST:event_jButton3ActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        // TODO add your handling code here:
-      
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jPasswordField1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPasswordField1MouseClicked
         // TODO add your handling code here:
-         for(int i = 0 ; i < emailList.size();i++){
-        if(jTextField1.getText().equals(emailList.get(i))){
-        is_Correct = true ;
-        break ;
-        
+        for (int i = 0; i < emailList.size(); i++) {
+            if (jTextField1.getText().equals(emailList.get(i))) {
+                is_Correct = true;
+                break;
+
+            }
         }
-        }
-        if(is_Correct){
+        if (is_Correct) {
             jLabel3.setText("");
             /* this.hide();
             ManageCLOs clos = new ManageCLOs();
             clos.setVisible(true); */
-                 }
-                else{
-                
-                   jLabel3.setText("Invalid Email");
-                }
-         if(jTextField1.getText().equals("samyanwahala@gmail.com")){
-           jLabel6.setText("Course ID");
-           
-           jComboBox1.addItem("CS-162");
-           jComboBox1.addItem("CS-162L");
-           jComboBox1.setVisible(true);
-          
-           
-         }
-        
+        } else {
+
+            jLabel3.setText("Invalid Email");
+        }
+        if (jTextField1.getText().equals("samyanwahala@gmail.com")) {
+            Teacher.getInstance().setTeacher_name("Samyan Wahala");
+            jLabel6.setText("Course ID");
+
+            jComboBox1.addItem("CS-162");
+            jComboBox1.addItem("CS-162L");
+            jComboBox1.setVisible(true);
+        } else if (jTextField1.getText().equals("aftab.shoukat14@yahoo.com")) {
+            Teacher.getInstance().setTeacher_name("Aftab Shoukat");
+            Teacher.getInstance().setCourse_ID("MA-343");
+            Teacher.getInstance().setCourse_Title("Applied Probability and Statistics");
+
+        } else if (jTextField1.getText().equals("hinasamr@gmail.com")) {
+            Teacher.getInstance().setTeacher_name("Hina Samar");
+             Teacher.getInstance().setCourse_ID("MA-343");
+            Teacher.getInstance().setCourse_Title("Applied Probability and Statistics");
+
+        } else if (jTextField1.getText().equals("rubina@uet.edu.pk")) {
+            Teacher.getInstance().setTeacher_name("Rubina Siddique");
+             Teacher.getInstance().setCourse_ID("MA-343");
+            Teacher.getInstance().setCourse_Title("Applied Probability and Statistics");
+
+        } else if (jTextField1.getText().equals("sadia@uet.edu.pk")) {
+            Teacher.getInstance().setTeacher_name("Miss Sadia");
+             Teacher.getInstance().setCourse_ID("MA-343");
+            Teacher.getInstance().setCourse_Title("Applied Probability and Statistics");
+
+        } else if (jTextField1.getText().equals("yasir@uet.edu.pk")) {
+
+            Teacher.getInstance().setTeacher_name("Yasir Saleem");
+             Teacher.getInstance().setCourse_ID("MA-343");
+            Teacher.getInstance().setCourse_Title("Applied Probability and Statistics");
+        } else if (jTextField1.getText().equals("rajamuzammil93@gmail.com")) {
+
+            Teacher.getInstance().setTeacher_name("Raja Muzammil Munir");
+             Teacher.getInstance().setCourse_ID("MA-343");
+            Teacher.getInstance().setCourse_Title("Applied Probability and Statistics");
+        } else if (jTextField1.getText().equals("sohail.rashid@uet.edu.pk")) {
+
+            Teacher.getInstance().setTeacher_name("Sohail Rashid");
+             Teacher.getInstance().setCourse_ID("MA-343");
+            Teacher.getInstance().setCourse_Title("Applied Probability and Statistics");
+        }else if (jTextField1.getText().equals("kashifali@uet.edu.pk")) {
+
+            Teacher.getInstance().setTeacher_name("Dr Kashif Ali Khan");
+            Teacher.getInstance().setCourse_ID("MA-343");
+            Teacher.getInstance().setCourse_Title("Applied Probability and Statistics");
+        }
     }//GEN-LAST:event_jPasswordField1MouseClicked
 
     /**

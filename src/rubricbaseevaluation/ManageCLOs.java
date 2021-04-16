@@ -238,13 +238,12 @@ public class ManageCLOs extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        int i = JOptionPane.showConfirmDialog(null,"Do you want To Exit the program","Confirm", 0, 1);
-        if(i == 0){
-         System.exit(0);
+        int i = JOptionPane.showConfirmDialog(null, "Do you want To Exit the program", "Confirm", 0, 1);
+        if (i == 0) {
+            System.exit(0);
         }
-      
-        
-       
+
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -276,8 +275,8 @@ public class ManageCLOs extends javax.swing.JFrame {
         // TODO add your handling code here:
         this.setVisible(false);
         ManageAssesments assesment = new ManageAssesments();
-        for(int i = 0 ; i < Teacher.getInstance().getClosList().size();i++){
-         assesment.closComboBox.addItem(Teacher.getInstance().getClosList().get(i).getType());
+        for (int i = 0; i < Teacher.getInstance().getClosList().size(); i++) {
+            assesment.closComboBox.addItem(Teacher.getInstance().getClosList().get(i).getType());
         }
         assesment.setVisible(true);
     }//GEN-LAST:event_button1ActionPerformed

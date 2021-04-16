@@ -20,31 +20,31 @@ public class RubricView extends javax.swing.JFrame {
     /**
      * Creates new form RubricView
      */
-    private int sum = 0 ;
-    
-    DefaultTableModel model ;
-    private static int assesment_Index = -1 ; // for assessment number 
+    private int sum = 0;
+
+    DefaultTableModel model;
+
+    /* private static int assesment_Index = -1 ;*/ // for assessment number 
     public RubricView() {
         initComponents();
-        assesment_Index++;
+        /*assesment_Index++;*/
         this.setLocationRelativeTo(null);
         model = new DefaultTableModel();
-     
-      
+
         model.addColumn("");
         model.addColumn("");
-        Object label [] = {"Type","Total Marks"};
+        Object label[] = {"Type", "Total Marks"};
         model.addRow(label);
-        if(assesment_Index != -1){
-        Object first_Row []={Teacher.getInstance().getAssessmentList().get(assesment_Index).getAssessment_type(),Teacher.getInstance().getAssessmentList().get(assesment_Index).getTotal_marks()}; 
-       
-        Object rubric [] = {"Rubric","Components Marks"};
-       
+        /* if(assesment_Index != -1){*/
+ /* Object first_Row []={Teacher.getInstance().getAssessmentList().get(assesment_Index).getAssessment_type(),Teacher.getInstance().getAssessmentList().get(assesment_Index).getTotal_marks()}; */
+        Object first_Row[] = {Teacher.getInstance().getAssessment().getAssessment_type(), Teacher.getInstance().getAssessment().getTotal_marks()};
+        Object rubric[] = {"Rubric", "Components Marks"};
+
         model.addRow(first_Row);
         model.addRow(rubric);
         jTable1.setModel(model);
-        addRowData(Teacher.getInstance().getAssessmentList());
-        }
+        addRowData(Teacher.getInstance().getAssessment());
+
         jTable1.setEnabled(false);
     }
 
@@ -205,53 +205,62 @@ public class RubricView extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        int i = JOptionPane.showConfirmDialog(null,"Do you want To Exit the program","Confirm", 0, 1);
-        if(i == 0){
-         System.exit(0);
+        int i = JOptionPane.showConfirmDialog(null, "Do you want To Exit the program", "Confirm", 0, 1);
+        if (i == 0) {
+            System.exit(0);
         }
-       
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-        
-       
-        if(sum == Teacher.getInstance().getAssessment().getTotal_marks()) {
-         
-          ManageStudents student = new ManageStudents();
-          this.setVisible(false);
-          student.setVisible(true);
+
+        if (sum == Teacher.getInstance().getAssessment().getTotal_marks()) {
+
+            ManageStudents student = new ManageStudents();
+            this.setVisible(false);
+            student.setVisible(true);
+        } else 
+          if(sum < Teacher.getInstance().getAssessment().getTotal_marks()){
+            ManageAssesments assesment = new ManageAssesments();
+            assesment.jTextField1.setEnabled(false);
+            assesment.jTextField2.setEnabled(false);
+            assesment.jLabel6.setEnabled(false);
+            assesment.closComboBox.setEnabled(false);
+            this.setVisible(false);
+            assesment.setVisible(true);  
         }
-        else{
-        ManageAssesments assesment = new ManageAssesments();
-        assesment.jTextField1.setEnabled(false);
-        assesment.jTextField2.setEnabled(false);
-        assesment.jLabel6.setEnabled(false);
-        assesment.closComboBox.setEnabled(false);
-        this.setVisible(false);
-        assesment.setVisible(true);
-        }
+        else
+          {
+               jTable1.setEnabled(true);
+              int size = Teacher.getInstance().getAssessment().getComponent_marks().size();
+              Object data [] = new Object[size];
+              int row = 5 ;
+              for(int i = 0 ; i < size ; i++){
+              data[i] = jTable1.getValueAt(row, 1);
+              row++;
+              }
+          } 
     }//GEN-LAST:event_jButton3ActionPerformed
-   public void addRowData(ArrayList<Assesments> assesment){
-       
-        int size = Teacher.getInstance().getAssessmentList().get(assesment_Index).getComponent_marks().size();
-         for(int i = 0 ; i < size;i++){
-        sum = sum + Teacher.getInstance().getAssessmentList().get(assesment_Index).getComponent_marks().get(i);
+    public void addRowData(Assesments assesment) {
+
+        int size = Teacher.getInstance().getAssessment().getComponent_marks().size();
+        for (int i = 0; i < size; i++) {
+            sum = sum + Teacher.getInstance().getAssessment().getComponent_marks().get(i);
         }
-           
-       
-      Object rowData[] = new Object[2];
-      
-      
-      rowData[1] = "Remaing marks "+(assesment.get(assesment_Index).getTotal_marks()- sum);
-      model.addRow(rowData);
-      for(int i = 0 ; i < assesment.get(assesment_Index).getComponent_marks().size();i++ ){
-          
-        rowData[0] = assesment.get(assesment_Index).getRubrics().get(i);
-        rowData[1] = assesment.get(assesment_Index).getComponent_marks().get(i) ;
+
+        Object rowData[] = new Object[2];
+
+        rowData[1] = "Remaing marks " + (assesment.getTotal_marks() - sum);
         model.addRow(rowData);
-      }
-   }
+        for (int i = 0; i < assesment.getComponent_marks().size(); i++) {
+
+            rowData[0] = assesment.getRubrics().get(i);
+            rowData[1] = assesment.getComponent_marks().get(i);
+            model.addRow(rowData);
+        }
+    }
+
     /**
      * @param args the command line arguments
      */

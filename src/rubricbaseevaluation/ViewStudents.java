@@ -20,9 +20,9 @@ public class ViewStudents extends javax.swing.JFrame {
     /**
      * Creates new form ViewStudents
      */
-    DefaultTableModel model ;
-    private int selectedRowIndex ;
-    
+    DefaultTableModel model;
+    private int selectedRowIndex;
+
     public ViewStudents() {
         initComponents();
         this.setLocationRelativeTo(null);
@@ -33,7 +33,7 @@ public class ViewStudents extends javax.swing.JFrame {
         model.addColumn("Gender");
         addRowData(Teacher.getInstance().getStudentList());
         jTable1.setModel(model);
-       
+
     }
 
     /**
@@ -201,54 +201,55 @@ public class ViewStudents extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-       int i = JOptionPane.showConfirmDialog(null,"Do you want To Exit the program","Confirm", 0, 1);
-        if(i == 0){
-         System.exit(0);
+        int i = JOptionPane.showConfirmDialog(null, "Do you want To Exit the program", "Confirm", 0, 1);
+        if (i == 0) {
+            System.exit(0);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
         this.setVisible(false);
-        ManageStudents student =  new ManageStudents();
+        ManageStudents student = new ManageStudents();
         student.setVisible(true);
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
         // TODO add your handling code here:
-         selectedRowIndex = jTable1.getSelectedRow();
-         if(!getRowData(selectedRowIndex).equals(null)){
-           StudentInfo info = new StudentInfo();
-           this.setVisible(false);
+        selectedRowIndex = jTable1.getSelectedRow();
+        if (!getRowData(selectedRowIndex).equals(null)) {
+            StudentInfo info = new StudentInfo();
+            this.setVisible(false);
             info.setVisible(true);
-           info.getStudentData(getRowData(selectedRowIndex));
-         }
-
-        
-    }//GEN-LAST:event_jTable1MouseClicked
-    
-    private Students getRowData(int index){
-        Students std = new Students();
-        if(index != -1){
-        
-         Object regNO = model.getValueAt(index,1);
-          std = Teacher.getInstance().seearchStudent(regNO.toString());
+            info.getStudentData(getRowData(selectedRowIndex));
         }
-      return std ;
+
+
+    }//GEN-LAST:event_jTable1MouseClicked
+
+    private Students getRowData(int index) {
+        Students std = new Students();
+        if (index != -1) {
+
+            Object regNO = model.getValueAt(index, 1);
+            std = Teacher.getInstance().seearchStudent(regNO.toString());
+        }
+        return std;
     }
-    private void addRowData(ArrayList<Students> s ){
-     Object rowData [] = new Object[3];
-     for(int i = 0 ;i < s.size();i++){
-       if(!s.get(i).getStudent_name().equals("")){
-        rowData[0] = s.get(i).getStudent_name();
-        rowData[1] = s.get(i).getRegisterationNO();
-        rowData[2] = s.get(i).getGender();
-        model.addRow(rowData);
-       }
-      }
-   
-   }
- 
+
+    private void addRowData(ArrayList<Students> s) {
+        Object rowData[] = new Object[3];
+        for (int i = 0; i < s.size(); i++) {
+            if (!s.get(i).getStudent_name().equals("")) {
+                rowData[0] = s.get(i).getStudent_name();
+                rowData[1] = s.get(i).getRegisterationNO();
+                rowData[2] = s.get(i).getGender();
+                model.addRow(rowData);
+            }
+        }
+
+    }
+
     /**
      * @param args the command line arguments
      */

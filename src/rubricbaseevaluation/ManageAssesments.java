@@ -17,7 +17,6 @@ public class ManageAssesments extends javax.swing.JFrame {
     /**
      * Creates new form ManageAssesments
      */
-   
     public ManageAssesments() {
         initComponents();
         this.setLocationRelativeTo(null);
@@ -253,44 +252,53 @@ public class ManageAssesments extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        int i = JOptionPane.showConfirmDialog(null,"Do you want To Exit the program","Confirm", 0, 1);
-        if(i == 0){
-         System.exit(0);
+        int i = JOptionPane.showConfirmDialog(null, "Do you want To Exit the program", "Confirm", 0, 1);
+        if (i == 0) {
+            System.exit(0);
         }
-      
-                
+
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-       
-      
-        String type = jTextField1.getText();
-        
-        if(!type.equals("")){
-        Teacher.getInstance().getAssessment().setAssessment_type(type);
-       
-        String t_Marks = jTextField2.getText();
-        int total_Marks = Integer.parseInt(t_Marks);
-        Teacher.getInstance().getAssessment().setTotal_marks(total_Marks);
-        String clo = closComboBox.getSelectedItem().toString();
-        if(clo != ""){
-          Teacher.getInstance().getAssessment().setClos(clo);
+        try {
+            String type = jTextField1.getText();
+
+            if (!type.equals("")) {
+                Teacher.getInstance().getAssessment().setAssessment_type(type);
+
+                String t_Marks = jTextField2.getText();
+                int total_Marks = Integer.parseInt(t_Marks);
+                Teacher.getInstance().getAssessment().setTotal_marks(total_Marks);
+                String clo = "";
+                if (closComboBox.getSelectedItem().toString() != "") {
+
+                    clo = closComboBox.getSelectedItem().toString();
+                }
+                if (clo != "" || clo != null) {
+                    Teacher.getInstance().getAssessment().setClos(clo);
+                }
+
+            }
+            String rubric = jTextField3.getText();
+
+            if (!"".equals(rubric)) {
+                Teacher.getInstance().getAssessment().addRubrics(rubric);
+            }
+            String c_Marks = jTextField4.getText();
+
+            int component_Marks = Integer.parseInt(c_Marks);
+            Teacher.getInstance().getAssessment().addComponent_marks(component_Marks);
+
+            Teacher.getInstance().addAssessment(Teacher.getInstance().getAssessment());
+
+            this.hide();
+            RubricView rw = new RubricView();
+            rw.setVisible(true);
+        } catch (Exception ex) {
         }
-        
-        }
-        String rubric = jTextField3.getText();
-        /*assesment.setRubric(rubric);*/
-        Teacher.getInstance().getAssessment().addRubrics(rubric);
-        String c_Marks = jTextField4.getText();
-        int component_Marks = Integer.parseInt(c_Marks);
-        Teacher.getInstance().getAssessment().addComponent_marks(component_Marks);
-        
-        Teacher.getInstance().addAssessment(Teacher.getInstance().getAssessment());
-        
-        this.hide();
-        RubricView rw = new RubricView();
-        rw.setVisible(true);
+
     }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
