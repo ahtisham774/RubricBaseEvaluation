@@ -35,17 +35,16 @@ public class RubricView extends javax.swing.JFrame {
         model.addColumn("");
         Object label[] = {"Type", "Total Marks"};
         model.addRow(label);
-        /* if(assesment_Index != -1){*/
- /* Object first_Row []={Teacher.getInstance().getAssessmentList().get(assesment_Index).getAssessment_type(),Teacher.getInstance().getAssessmentList().get(assesment_Index).getTotal_marks()}; */
+
         Object first_Row[] = {Teacher.getInstance().getAssessment().getAssessment_type(), Teacher.getInstance().getAssessment().getTotal_marks()};
         Object rubric[] = {"Rubric", "Components Marks"};
 
         model.addRow(first_Row);
         model.addRow(rubric);
-        jTable1.setModel(model);
+        viewRubricTable.setModel(model);
         addRowData(Teacher.getInstance().getAssessment());
 
-        jTable1.setEnabled(false);
+        viewRubricTable.setEnabled(false);
     }
 
     /**
@@ -59,13 +58,13 @@ public class RubricView extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        close_btn = new javax.swing.JButton();
+        minimize_btn = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jButton3 = new javax.swing.JButton();
+        viewRubricTable = new javax.swing.JTable();
+        rubric_Ok_btn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -75,20 +74,20 @@ public class RubricView extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Segoe Print", 1, 12)); // NOI18N
         jLabel1.setText("Manage Rubric");
 
-        jButton1.setBackground(new java.awt.Color(255, 0, 0));
-        jButton1.setText("X");
-        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        close_btn.setBackground(new java.awt.Color(255, 0, 0));
+        close_btn.setText("X");
+        close_btn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        close_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                close_btnActionPerformed(evt);
             }
         });
 
-        jButton2.setText("-");
-        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        minimize_btn.setText("-");
+        minimize_btn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        minimize_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                minimize_btnActionPerformed(evt);
             }
         });
 
@@ -100,9 +99,9 @@ public class RubricView extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton2)
+                .addComponent(minimize_btn)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1))
+                .addComponent(close_btn))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -110,8 +109,8 @@ public class RubricView extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
+                    .addComponent(close_btn)
+                    .addComponent(minimize_btn))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -121,7 +120,7 @@ public class RubricView extends javax.swing.JFrame {
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "View", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe Print", 0, 11))); // NOI18N
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        viewRubricTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -129,7 +128,7 @@ public class RubricView extends javax.swing.JFrame {
 
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(viewRubricTable);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -148,12 +147,12 @@ public class RubricView extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jButton3.setBackground(new java.awt.Color(255, 255, 255));
-        jButton3.setFont(new java.awt.Font("Segoe Print", 0, 11)); // NOI18N
-        jButton3.setText("Ok");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        rubric_Ok_btn.setBackground(new java.awt.Color(255, 255, 255));
+        rubric_Ok_btn.setFont(new java.awt.Font("Segoe Print", 0, 11)); // NOI18N
+        rubric_Ok_btn.setText("Ok");
+        rubric_Ok_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                rubric_Ok_btnActionPerformed(evt);
             }
         });
 
@@ -163,7 +162,7 @@ public class RubricView extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton3)
+                .addComponent(rubric_Ok_btn)
                 .addContainerGap())
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(22, 22, 22)
@@ -176,7 +175,7 @@ public class RubricView extends javax.swing.JFrame {
                 .addGap(32, 32, 32)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(rubric_Ok_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -198,21 +197,21 @@ public class RubricView extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void minimize_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_minimize_btnActionPerformed
         // TODO add your handling code here:
         this.setState(JFrame.ICONIFIED);
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_minimize_btnActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void close_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_close_btnActionPerformed
         // TODO add your handling code here:
         int i = JOptionPane.showConfirmDialog(null, "Do you want To Exit the program", "Confirm", 0, 1);
         if (i == 0) {
             System.exit(0);
         }
 
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_close_btnActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void rubric_Ok_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rubric_Ok_btnActionPerformed
         // TODO add your handling code here:
 
         if (sum == Teacher.getInstance().getAssessment().getTotal_marks()) {
@@ -223,8 +222,9 @@ public class RubricView extends javax.swing.JFrame {
         } else 
           if(sum < Teacher.getInstance().getAssessment().getTotal_marks()){
             ManageAssesments assesment = new ManageAssesments();
-            assesment.jTextField1.setEnabled(false);
-            assesment.jTextField2.setEnabled(false);
+            assesment.jLabel9.setText("Enter Rubric and Component mark");
+            assesment.assesment_typeField.setEnabled(false);
+            assesment.total_markField.setEnabled(false);
             assesment.jLabel6.setEnabled(false);
             assesment.closComboBox.setEnabled(false);
             this.setVisible(false);
@@ -232,16 +232,16 @@ public class RubricView extends javax.swing.JFrame {
         }
         else
           {
-               jTable1.setEnabled(true);
+               viewRubricTable.setEnabled(true);
               int size = Teacher.getInstance().getAssessment().getComponent_marks().size();
               Object data [] = new Object[size];
               int row = 5 ;
               for(int i = 0 ; i < size ; i++){
-              data[i] = jTable1.getValueAt(row, 1);
+              data[i] = viewRubricTable.getValueAt(row, 1);
               row++;
               }
           } 
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_rubric_Ok_btnActionPerformed
     public void addRowData(Assesments assesment) {
 
         int size = Teacher.getInstance().getAssessment().getComponent_marks().size();
@@ -297,14 +297,14 @@ public class RubricView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton close_btn;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JButton minimize_btn;
+    private javax.swing.JButton rubric_Ok_btn;
+    private javax.swing.JTable viewRubricTable;
     // End of variables declaration//GEN-END:variables
 }

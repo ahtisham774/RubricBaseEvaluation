@@ -29,17 +29,13 @@ public class LoginFrame extends javax.swing.JFrame {
         jLabel3.setText("");
         jLabel5.setText("");
         jLabel6.setText("");
-        jComboBox1.setVisible(false);
+        course_ID_combo_box.setVisible(false);
         emailList.add("samyanwahala@gmail.com");
         passwordList.add("samyan1234");
-        emailList.add("aftab.shoukat14@yahoo.com");
-        passwordList.add("aftab1234");
         emailList.add("hinasamr@gmail.com");
         passwordList.add("hina1234");
         emailList.add("rubina@uet.edu.pk");
         passwordList.add("rubina1234");
-        emailList.add("sadia@uet.edu.pk");
-        passwordList.add("sadia1234");
         emailList.add("yasir@uet.edu.pk");
         passwordList.add("samyan1234");
         emailList.add("rajamuzammil93@gmail.com");
@@ -60,20 +56,20 @@ public class LoginFrame extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel2 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        closeBtn = new javax.swing.JButton();
+        minimizeBtn = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        email_InputField = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jPasswordField1 = new javax.swing.JPasswordField();
+        password_Field = new javax.swing.JPasswordField();
         jLabel5 = new javax.swing.JLabel();
-        jCheckBox1 = new javax.swing.JCheckBox();
-        jButton3 = new javax.swing.JButton();
+        show_pass_chk_box = new javax.swing.JCheckBox();
+        LoginBtn = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        course_ID_combo_box = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Login");
@@ -83,25 +79,25 @@ public class LoginFrame extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(204, 204, 255));
 
-        jButton1.setBackground(new java.awt.Color(255, 0, 0));
-        jButton1.setText("X");
-        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+        closeBtn.setBackground(new java.awt.Color(255, 0, 0));
+        closeBtn.setText("X");
+        closeBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        closeBtn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton1MouseClicked(evt);
+                closeBtnMouseClicked(evt);
             }
         });
 
-        jButton2.setText("-");
-        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+        minimizeBtn.setText("-");
+        minimizeBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        minimizeBtn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton2MouseClicked(evt);
+                minimizeBtnMouseClicked(evt);
             }
         });
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        minimizeBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                minimizeBtnActionPerformed(evt);
             }
         });
 
@@ -116,17 +112,17 @@ public class LoginFrame extends javax.swing.JFrame {
                 .addGap(23, 23, 23)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton2)
+                .addComponent(minimizeBtn)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1)
+                .addComponent(closeBtn)
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2)
+                    .addComponent(closeBtn)
+                    .addComponent(minimizeBtn)
                     .addComponent(jLabel1))
                 .addGap(0, 7, Short.MAX_VALUE))
         );
@@ -141,37 +137,37 @@ public class LoginFrame extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
         jLabel4.setText("Password");
 
-        jPasswordField1.addMouseListener(new java.awt.event.MouseAdapter() {
+        password_Field.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jPasswordField1MouseClicked(evt);
+                password_FieldMouseClicked(evt);
             }
         });
 
         jLabel5.setText("jLabel5");
 
-        jCheckBox1.setFont(new java.awt.Font("Segoe Print", 0, 11)); // NOI18N
-        jCheckBox1.setText("Show Password");
-        jCheckBox1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
+        show_pass_chk_box.setFont(new java.awt.Font("Segoe Print", 0, 11)); // NOI18N
+        show_pass_chk_box.setText("Show Password");
+        show_pass_chk_box.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        show_pass_chk_box.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox1ActionPerformed(evt);
+                show_pass_chk_boxActionPerformed(evt);
             }
         });
 
-        jButton3.setBackground(new java.awt.Color(204, 255, 255));
-        jButton3.setFont(new java.awt.Font("Segoe Print", 0, 11)); // NOI18N
-        jButton3.setText("Login");
-        jButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        LoginBtn.setBackground(new java.awt.Color(204, 255, 255));
+        LoginBtn.setFont(new java.awt.Font("Segoe Print", 0, 11)); // NOI18N
+        LoginBtn.setText("Login");
+        LoginBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        LoginBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                LoginBtnActionPerformed(evt);
             }
         });
 
         jLabel6.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
         jLabel6.setText("jlabel6");
 
-        jComboBox1.setFont(new java.awt.Font("Segoe Print", 0, 11)); // NOI18N
+        course_ID_combo_box.setFont(new java.awt.Font("Segoe Print", 0, 11)); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -179,7 +175,7 @@ public class LoginFrame extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(0, 350, Short.MAX_VALUE)
-                .addComponent(jButton3)
+                .addComponent(LoginBtn)
                 .addGap(21, 21, 21))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(79, Short.MAX_VALUE)
@@ -187,12 +183,12 @@ public class LoginFrame extends javax.swing.JFrame {
                     .addComponent(jLabel6)
                     .addComponent(jLabel4)
                     .addComponent(jLabel2)
-                    .addComponent(jCheckBox1)
+                    .addComponent(show_pass_chk_box)
                     .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPasswordField1, javax.swing.GroupLayout.DEFAULT_SIZE, 248, Short.MAX_VALUE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 248, Short.MAX_VALUE)
-                    .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(password_Field, javax.swing.GroupLayout.DEFAULT_SIZE, 248, Short.MAX_VALUE)
+                    .addComponent(email_InputField, javax.swing.GroupLayout.DEFAULT_SIZE, 248, Short.MAX_VALUE)
+                    .addComponent(course_ID_combo_box, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(105, 105, 105))
         );
         jPanel1Layout.setVerticalGroup(
@@ -200,23 +196,23 @@ public class LoginFrame extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(email_InputField, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(password_Field, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jCheckBox1)
+                .addComponent(show_pass_chk_box)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(course_ID_combo_box, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(23, 23, 23)
-                .addComponent(jButton3)
+                .addComponent(LoginBtn)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -224,7 +220,7 @@ public class LoginFrame extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 432, Short.MAX_VALUE)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
@@ -232,41 +228,36 @@ public class LoginFrame extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 418, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+    private void closeBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closeBtnMouseClicked
         // TODO add your handling code here:
         System.exit(0);
-    }//GEN-LAST:event_jButton1MouseClicked
+    }//GEN-LAST:event_closeBtnMouseClicked
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-
-    }//GEN-LAST:event_jButton2ActionPerformed
-
-    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
+    private void minimizeBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_minimizeBtnMouseClicked
         // TODO add your handling code here:
         this.setState(JFrame.ICONIFIED);
-    }//GEN-LAST:event_jButton2MouseClicked
+    }//GEN-LAST:event_minimizeBtnMouseClicked
 
-    private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
+    private void show_pass_chk_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_show_pass_chk_boxActionPerformed
         // TODO add your handling code here:
-        if (jCheckBox1.isSelected()) {
-            jPasswordField1.setEchoChar((char) 0);
+        if (show_pass_chk_box.isSelected()) {
+            password_Field.setEchoChar((char) 0);
         } else {
-            jPasswordField1.setEchoChar('*');
+            password_Field.setEchoChar('*');
         }
-    }//GEN-LAST:event_jCheckBox1ActionPerformed
+    }//GEN-LAST:event_show_pass_chk_boxActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void LoginBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginBtnActionPerformed
         // TODO add your handling code here:
 
         for (int i = 0; i < passwordList.size(); i++) {
-            if (jPasswordField1.getPassword().equals(passwordList.get(i))) {
+            if (password_Field.getPassword().equals(passwordList.get(i))) {
                 is_Correct = true;
                 break;
 
@@ -274,37 +265,32 @@ public class LoginFrame extends javax.swing.JFrame {
         }
         if (is_Correct) {
             jLabel5.setText("");
+            String selected_ID = course_ID_combo_box.getSelectedItem().toString();
+            if (selected_ID.equals("CS-162")) {
+                Teacher.getInstance().setCourse_ID(selected_ID);
+                Teacher.getInstance().setCourse_Title("Object Oriented Programming");
+            } else {
+                Teacher.getInstance().setCourse_ID(selected_ID);
+                Teacher.getInstance().setCourse_Title("Object Oriented Programming ");
+            }
+
+            this.hide();
+            ManageCLOs clos = new ManageCLOs();
+            clos.setVisible(true);
 
         } else {
 
             jLabel5.setText("Invalid Password");
-        }
-        String selected_ID = jComboBox1.getSelectedItem().toString();
-        if (selected_ID.equals("CS-162")) {
-            Teacher.getInstance().setCourse_ID(selected_ID);
-            Teacher.getInstance().setCourse_Title("Object Oriented Programming");
-        } else {
-            Teacher.getInstance().setCourse_ID(selected_ID);
-            Teacher.getInstance().setCourse_Title("Object Oriented Programming Lab");
+            password_Field.setText("");
         }
 
-        this.hide();
-        ManageCLOs clos = new ManageCLOs();
-        clos.setVisible(true);
 
-        /*if(!(Pattern.matches("^[a-zA-Z0-9]+[@]+[a-zA-Z0-9]+[.]+[a-zA-Z0-9]+[.]+[a-zA-Z0-9]+[.]+[a-zA-Z0-9]+$",jTextField1.getText()))){
-        JOptionPane.showMessageDialog(null, "Invalid email", "Alert", 2);
-        }
-        else{
-        JOptionPane.showMessageDialog(null, "valid email", "Congratulations!!!", 1);
-        }*/
+    }//GEN-LAST:event_LoginBtnActionPerformed
 
-    }//GEN-LAST:event_jButton3ActionPerformed
-
-    private void jPasswordField1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPasswordField1MouseClicked
+    private void password_FieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_password_FieldMouseClicked
         // TODO add your handling code here:
         for (int i = 0; i < emailList.size(); i++) {
-            if (jTextField1.getText().equals(emailList.get(i))) {
+            if (email_InputField.getText().equals(emailList.get(i))) {
                 is_Correct = true;
                 break;
 
@@ -312,62 +298,57 @@ public class LoginFrame extends javax.swing.JFrame {
         }
         if (is_Correct) {
             jLabel3.setText("");
-            /* this.hide();
-            ManageCLOs clos = new ManageCLOs();
-            clos.setVisible(true); */
+
         } else {
 
             jLabel3.setText("Invalid Email");
+            email_InputField.setText("");
         }
-        if (jTextField1.getText().equals("samyanwahala@gmail.com")) {
+        if (email_InputField.getText().equals("samyanwahala@gmail.com")) {
             Teacher.getInstance().setTeacher_name("Samyan Wahala");
             jLabel6.setText("Course ID");
 
-            jComboBox1.addItem("CS-162");
-            jComboBox1.addItem("CS-162L");
-            jComboBox1.setVisible(true);
-        } else if (jTextField1.getText().equals("aftab.shoukat14@yahoo.com")) {
-            Teacher.getInstance().setTeacher_name("Aftab Shoukat");
-            Teacher.getInstance().setCourse_ID("MA-343");
-            Teacher.getInstance().setCourse_Title("Applied Probability and Statistics");
+            course_ID_combo_box.addItem("CS-162");
+            course_ID_combo_box.addItem("CS-162L");
+            course_ID_combo_box.setVisible(true);
 
-        } else if (jTextField1.getText().equals("hinasamr@gmail.com")) {
+        } else if (email_InputField.getText().equals("hinasamr@gmail.com")) {
             Teacher.getInstance().setTeacher_name("Hina Samar");
-             Teacher.getInstance().setCourse_ID("MA-343");
-            Teacher.getInstance().setCourse_Title("Applied Probability and Statistics");
+            Teacher.getInstance().setCourse_ID("HU-111L");
+            Teacher.getInstance().setCourse_Title("Communication Skills");
 
-        } else if (jTextField1.getText().equals("rubina@uet.edu.pk")) {
+        } else if (email_InputField.getText().equals("rubina@uet.edu.pk")) {
             Teacher.getInstance().setTeacher_name("Rubina Siddique");
-             Teacher.getInstance().setCourse_ID("MA-343");
-            Teacher.getInstance().setCourse_Title("Applied Probability and Statistics");
+            Teacher.getInstance().setCourse_ID("MA-224");
+            Teacher.getInstance().setCourse_Title("Multivariate Calculus");
 
-        } else if (jTextField1.getText().equals("sadia@uet.edu.pk")) {
-            Teacher.getInstance().setTeacher_name("Miss Sadia");
-             Teacher.getInstance().setCourse_ID("MA-343");
-            Teacher.getInstance().setCourse_Title("Applied Probability and Statistics");
-
-        } else if (jTextField1.getText().equals("yasir@uet.edu.pk")) {
+        } else if (email_InputField.getText().equals("yasir@uet.edu.pk")) {
 
             Teacher.getInstance().setTeacher_name("Yasir Saleem");
-             Teacher.getInstance().setCourse_ID("MA-343");
-            Teacher.getInstance().setCourse_Title("Applied Probability and Statistics");
-        } else if (jTextField1.getText().equals("rajamuzammil93@gmail.com")) {
+            Teacher.getInstance().setCourse_ID("CMPE-222");
+            Teacher.getInstance().setCourse_Title("Digital Logic Design");
+        } else if (email_InputField.getText().equals("rajamuzammil93@gmail.com")) {
 
             Teacher.getInstance().setTeacher_name("Raja Muzammil Munir");
-             Teacher.getInstance().setCourse_ID("MA-343");
-            Teacher.getInstance().setCourse_Title("Applied Probability and Statistics");
-        } else if (jTextField1.getText().equals("sohail.rashid@uet.edu.pk")) {
+            Teacher.getInstance().setCourse_ID("CMPE-222L");
+            Teacher.getInstance().setCourse_Title("Digital Logic Design");
+        } else if (email_InputField.getText().equals("sohail.rashid@uet.edu.pk")) {
 
             Teacher.getInstance().setTeacher_name("Sohail Rashid");
-             Teacher.getInstance().setCourse_ID("MA-343");
-            Teacher.getInstance().setCourse_Title("Applied Probability and Statistics");
-        }else if (jTextField1.getText().equals("kashifali@uet.edu.pk")) {
+            Teacher.getInstance().setCourse_ID("QT-101");
+            Teacher.getInstance().setCourse_Title("ranslation of the Holy Quran - I");
+        } else if (email_InputField.getText().equals("kashifali@uet.edu.pk")) {
 
             Teacher.getInstance().setTeacher_name("Dr Kashif Ali Khan");
             Teacher.getInstance().setCourse_ID("MA-343");
             Teacher.getInstance().setCourse_Title("Applied Probability and Statistics");
         }
-    }//GEN-LAST:event_jPasswordField1MouseClicked
+    }//GEN-LAST:event_password_FieldMouseClicked
+
+    private void minimizeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_minimizeBtnActionPerformed
+        // TODO add your handling code here:
+        this.setState(JFrame.ICONIFIED);
+    }//GEN-LAST:event_minimizeBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -405,11 +386,10 @@ public class LoginFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JCheckBox jCheckBox1;
-    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JButton LoginBtn;
+    private javax.swing.JButton closeBtn;
+    private javax.swing.JComboBox<String> course_ID_combo_box;
+    private javax.swing.JTextField email_InputField;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -418,7 +398,8 @@ public class LoginFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JButton minimizeBtn;
+    private javax.swing.JPasswordField password_Field;
+    private javax.swing.JCheckBox show_pass_chk_box;
     // End of variables declaration//GEN-END:variables
 }

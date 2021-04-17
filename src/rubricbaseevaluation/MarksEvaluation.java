@@ -23,28 +23,29 @@ public class MarksEvaluation extends javax.swing.JFrame {
     private int selectedRowIndex;
     private int selectedColIndex;
     Students s;
+    Assesments ass;
 
     public MarksEvaluation() {
         initComponents();
         this.setLocationRelativeTo(null);
         s = new Students();
 
-        jLabel7.setText("");
-        jLabel8.setText("");
+        regNoLabel.setText("");
+        std_nameLabel.setText("");
         model = new DefaultTableModel();
         model2 = new DefaultTableModel();
 
         model.addColumn("Name");
         model.addColumn("Registration");
         model.addColumn("Gender");
-        jTable1.setModel(model);
+        studentSearchTable.setModel(model);
         model2.addColumn("Rubric");
         model2.addColumn("Component Marks");
         model2.addColumn("Obtain Comp_Marks");
-        jTable2.setModel(model2);
+        searchAssesmentTable.setModel(model2);
         marksEvaluationPanel.setVisible(false);
         searchTablePanel.setVisible(false);
-
+        ass = new Assesments();
     }
 
     /**
@@ -63,25 +64,25 @@ public class MarksEvaluation extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jButton3 = new javax.swing.JButton();
+        studentSearchField = new javax.swing.JTextField();
+        StudentSearchBtn = new javax.swing.JButton();
         marksEvaluationPanel = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
+        regNoLabel = new javax.swing.JLabel();
+        std_nameLabel = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
-        add_Btn = new javax.swing.JButton();
+        searchAssesmentTable = new javax.swing.JTable();
+        add_componentBtn = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        jButton4 = new javax.swing.JButton();
+        searchAssesmentField = new javax.swing.JTextField();
+        searchAssesmentBtn = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
+        closLabel = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         searchTablePanel = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        studentSearchTable = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -130,18 +131,17 @@ public class MarksEvaluation extends javax.swing.JFrame {
 
         jPanel2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
 
-        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Search Student", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe Print", 0, 11))); // NOI18N
 
         jLabel2.setFont(new java.awt.Font("Segoe Print", 0, 11)); // NOI18N
         jLabel2.setText("Registration No");
 
-        jButton3.setBackground(new java.awt.Color(255, 255, 255));
-        jButton3.setFont(new java.awt.Font("Segoe Print", 0, 11)); // NOI18N
-        jButton3.setText("Search");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        StudentSearchBtn.setBackground(new java.awt.Color(255, 255, 255));
+        StudentSearchBtn.setFont(new java.awt.Font("Segoe Print", 0, 11)); // NOI18N
+        StudentSearchBtn.setText("Search");
+        StudentSearchBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                StudentSearchBtnActionPerformed(evt);
             }
         });
 
@@ -152,11 +152,11 @@ public class MarksEvaluation extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(32, 32, 32)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(StudentSearchBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(studentSearchField, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(135, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
@@ -165,9 +165,9 @@ public class MarksEvaluation extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(studentSearchField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(StudentSearchBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -192,11 +192,11 @@ public class MarksEvaluation extends javax.swing.JFrame {
 
         jLabel4.setText("Name                     :");
 
-        jLabel7.setText("jLabel7");
+        regNoLabel.setText("jLabel7");
 
-        jLabel8.setText("jLabel8");
+        std_nameLabel.setText("jLabel8");
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        searchAssesmentTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
                 {},
@@ -207,38 +207,38 @@ public class MarksEvaluation extends javax.swing.JFrame {
 
             }
         ));
-        jTable2.addMouseListener(new java.awt.event.MouseAdapter() {
+        searchAssesmentTable.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTable2MouseClicked(evt);
+                searchAssesmentTableMouseClicked(evt);
             }
         });
-        jScrollPane2.setViewportView(jTable2);
+        jScrollPane2.setViewportView(searchAssesmentTable);
 
-        add_Btn.setText("Add");
-        add_Btn.addActionListener(new java.awt.event.ActionListener() {
+        add_componentBtn.setText("Add");
+        add_componentBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                add_BtnActionPerformed(evt);
+                add_componentBtnActionPerformed(evt);
             }
         });
 
         jLabel5.setText("Search Assessment :");
 
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        searchAssesmentField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                searchAssesmentFieldActionPerformed(evt);
             }
         });
 
-        jButton4.setText("search");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        searchAssesmentBtn.setText("search");
+        searchAssesmentBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                searchAssesmentBtnActionPerformed(evt);
             }
         });
 
         jLabel6.setText("CLO                       :");
 
-        jLabel9.setText("jLabel9");
+        closLabel.setText("jLabel9");
 
         jLabel10.setBackground(new java.awt.Color(204, 204, 255));
         jLabel10.setText("Click on row and press Add button to enter component marks");
@@ -252,7 +252,7 @@ public class MarksEvaluation extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, marksEvaluationPanelLayout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(marksEvaluationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(add_Btn, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(add_componentBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 442, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, marksEvaluationPanelLayout.createSequentialGroup()
                         .addGap(37, 37, 37)
@@ -262,23 +262,23 @@ public class MarksEvaluation extends javax.swing.JFrame {
                                 .addGroup(marksEvaluationPanelLayout.createSequentialGroup()
                                     .addComponent(jLabel5)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(searchAssesmentField, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jButton4))
+                                    .addComponent(searchAssesmentBtn))
                                 .addGroup(marksEvaluationPanelLayout.createSequentialGroup()
                                     .addGroup(marksEvaluationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addGroup(marksEvaluationPanelLayout.createSequentialGroup()
                                             .addComponent(jLabel6)
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                            .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(closLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addGroup(marksEvaluationPanelLayout.createSequentialGroup()
                                             .addGroup(marksEvaluationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                 .addComponent(jLabel3)
                                                 .addComponent(jLabel4))
                                             .addGap(14, 14, 14)
                                             .addGroup(marksEvaluationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                                .addComponent(regNoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(std_nameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))))
                                     .addGap(0, 0, Short.MAX_VALUE))))))
                 .addContainerGap(19, Short.MAX_VALUE))
         );
@@ -288,31 +288,31 @@ public class MarksEvaluation extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(marksEvaluationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jLabel7))
+                    .addComponent(regNoLabel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(marksEvaluationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(jLabel8))
+                    .addComponent(std_nameLabel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(marksEvaluationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(jLabel9))
+                    .addComponent(closLabel))
                 .addGap(23, 23, 23)
                 .addGroup(marksEvaluationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel5)
                     .addGroup(marksEvaluationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jButton4)))
+                        .addComponent(searchAssesmentField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(searchAssesmentBtn)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel10)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(add_Btn, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(add_componentBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(5, 5, 5))
         );
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        studentSearchTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
                 {},
@@ -323,12 +323,12 @@ public class MarksEvaluation extends javax.swing.JFrame {
 
             }
         ));
-        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+        studentSearchTable.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTable1MouseClicked(evt);
+                studentSearchTableMouseClicked(evt);
             }
         });
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(studentSearchTable);
 
         javax.swing.GroupLayout searchTablePanelLayout = new javax.swing.GroupLayout(searchTablePanel);
         searchTablePanel.setLayout(searchTablePanelLayout);
@@ -338,7 +338,9 @@ public class MarksEvaluation extends javax.swing.JFrame {
         );
         searchTablePanelLayout.setVerticalGroup(
             searchTablePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 95, Short.MAX_VALUE)
+            .addGroup(searchTablePanelLayout.createSequentialGroup()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -385,16 +387,16 @@ public class MarksEvaluation extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void StudentSearchBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_StudentSearchBtnActionPerformed
         // TODO add your handling code here:
-        String regNo = jTextField1.getText();
+        String regNo = studentSearchField.getText();
 
         if (!regNo.equals("")) {
-            jTextField1.setText("");
+            studentSearchField.setText("");
             searchTablePanel.setVisible(true);
             marksEvaluationPanel.setVisible(false);
             s = Teacher.getInstance().seearchStudent(regNo);
-            selectedRowIndex = jTable1.getSelectedRow();
+            selectedRowIndex = studentSearchTable.getSelectedRow();
             if (s != null) {
 
                 addRowData(s);
@@ -403,9 +405,9 @@ public class MarksEvaluation extends javax.swing.JFrame {
         }
 
 
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_StudentSearchBtnActionPerformed
 
-    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+    private void studentSearchTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_studentSearchTableMouseClicked
         // TODO add your handling code here:
 
         for (int i = 0; i < model2.getRowCount(); i++) {
@@ -413,58 +415,85 @@ public class MarksEvaluation extends javax.swing.JFrame {
         }
         marksEvaluationPanel.setVisible(true);
         searchTablePanel.setEnabled(false);
-        jLabel7.setText(s.getRegisterationNO());
-        jLabel8.setText(s.getStudent_name());
-        jLabel9.setText(Teacher.getInstance().getAssessmentList().get(0).getClos());
-        jTextField2.setText("");
+        regNoLabel.setText(s.getRegisterationNO());
+        std_nameLabel.setText(s.getStudent_name());
+        closLabel.setText(Teacher.getInstance().getAssessmentList().get(0).getClos());
+        searchAssesmentField.setText("");
 
-    }//GEN-LAST:event_jTable1MouseClicked
+    }//GEN-LAST:event_studentSearchTableMouseClicked
 
-    private void jTable2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable2MouseClicked
+    private void searchAssesmentTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchAssesmentTableMouseClicked
         // TODO add your handling code here:
         /*selectedColIndex = jTable2.getSelectedColumn();*/
-        selectedRowIndex = jTable2.getSelectedRow();
+        selectedRowIndex = searchAssesmentTable.getSelectedRow();
 
-    }//GEN-LAST:event_jTable2MouseClicked
+    }//GEN-LAST:event_searchAssesmentTableMouseClicked
 
-    private void add_BtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_BtnActionPerformed
+    private void add_componentBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_componentBtnActionPerformed
         // TODO add your handling code here:
-       
+
         ArrayList<Double> obt_marks = new ArrayList<>();
         int count = model2.getRowCount();
         Object newRows[] = new Object[count];
         for (int i = 0; i < count; i++) {
-            newRows[i] = jTable2.getValueAt(i, 2);
+            newRows[i] = searchAssesmentTable.getValueAt(i, 2);
 
         }
         for (int i = 0; i < count; i++) {
             if (newRows[i] != "") {
-               if(Integer.parseInt(newRows[i].toString()) <= Teacher.getInstance().getAssessment().getComponent_marks().get(i)) {
-                   try{
-                      obt_marks.add(Double.parseDouble(newRows[i].toString()));
-                   }catch(Exception ex){
-                     JOptionPane.showMessageDialog(null, "Invalid Field");
-                   }
-               }
-               else{
-                JOptionPane.showMessageDialog(null, "Invalid Field");
-               }
+                if (Integer.parseInt(newRows[i].toString()) <= ass.getComponent_marks().get(i)) {
+                    try {
+                        obt_marks.add(Double.parseDouble(newRows[i].toString()));
+                    } catch (Exception ex) {
+                        JOptionPane.showMessageDialog(null, "Invalid Field");
+                    }
+                } else {
+                    JOptionPane.showMessageDialog(null, "Invalid Field");
+                }
             } else {
                 JOptionPane.showMessageDialog(null, "Empty Field");
             }
         }
+        String d = JOptionPane.showInputDialog(null, "Enter Max Level");
+        if (d != "") {
+            double max_level = 0.0;
+            try {
 
-       
-    }//GEN-LAST:event_add_BtnActionPerformed
- private double  getStudentMarks(ArrayList<Double> ob_marks,double max_level){
-  return 0.0 ;
- }
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+                max_level = Double.parseDouble(d);
+            } catch (Exception ex) {
+                JOptionPane.showMessageDialog(null, "Empty", "Alert", 0);
+            }
+            ArrayList<Double> list = new ArrayList<>();
+            list = getStudentMarks(obt_marks, ass, max_level);
+            double sum = 0.0;
+            for (int i = 0; i < list.size(); i++) {
+                sum = sum + list.get(i);
+            }
+            s.setObtain_marks(sum);
+            ObtainedMarks obtain_marks = new ObtainedMarks();
+            obtain_marks.jLabel3.setText(s.getStudent_name());
+            obtain_marks.jLabel5.setText(s.getRegisterationNO());
+            obtain_marks.jLabel7.setText("" + s.getObtain_marks().get(0));
+            obtain_marks.setVisible(true);
+        } else {
+            JOptionPane.showMessageDialog(null, "Empty", "Alert", 0);
+        }
+    }//GEN-LAST:event_add_componentBtnActionPerformed
+    private ArrayList<Double> getStudentMarks(ArrayList<Double> ob_marks, Assesments as, double max_level) {
+        ArrayList<Double> marks = new ArrayList<>();
+        for (int i = 0; i < ob_marks.size(); i++) {
+            double result = ob_marks.get(i) * as.getComponent_marks().get(i);
+            result = result / max_level;
+            marks.add(result);
+        }
+
+        return marks;
+    }
+    private void searchAssesmentBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchAssesmentBtnActionPerformed
         // TODO add your handling code here:
-        String assesment = jTextField2.getText();
+        String assesment = searchAssesmentField.getText();
         if (!assesment.equals("")) {
 
-            Assesments ass = new Assesments();
             ass = Teacher.getInstance().searchAssesment(assesment);
             if (ass != null) {
                 for (int i = 0; i < model2.getRowCount(); i++) {
@@ -481,11 +510,11 @@ public class MarksEvaluation extends javax.swing.JFrame {
 
             }
         }
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_searchAssesmentBtnActionPerformed
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+    private void searchAssesmentFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchAssesmentFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    }//GEN-LAST:event_searchAssesmentFieldActionPerformed
     private Students getRowData(int index) {
         Students std = new Students();
         if (index != -1) {
@@ -518,7 +547,7 @@ public class MarksEvaluation extends javax.swing.JFrame {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -547,11 +576,11 @@ public class MarksEvaluation extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton add_Btn;
+    private javax.swing.JButton StudentSearchBtn;
+    private javax.swing.JButton add_componentBtn;
+    private javax.swing.JLabel closLabel;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
@@ -559,19 +588,19 @@ public class MarksEvaluation extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable2;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
     private javax.swing.JPanel marksEvaluationPanel;
+    private javax.swing.JLabel regNoLabel;
+    private javax.swing.JButton searchAssesmentBtn;
+    private javax.swing.JTextField searchAssesmentField;
+    private javax.swing.JTable searchAssesmentTable;
     private javax.swing.JPanel searchTablePanel;
+    private javax.swing.JLabel std_nameLabel;
+    private javax.swing.JTextField studentSearchField;
+    private javax.swing.JTable studentSearchTable;
     // End of variables declaration//GEN-END:variables
 }

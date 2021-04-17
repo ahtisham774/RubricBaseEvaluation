@@ -8,8 +8,11 @@ package rubricbaseevaluation;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -62,10 +65,12 @@ public class Teacher {
     }
 
     private Teacher() {
+        
         closList = new ArrayList<>();
         studentList = new ArrayList<>();
         assessmentList = new ArrayList<>();
         assessment = new Assesments();
+       loadCLOsData();
     }
 
     public static Teacher getInstance() {
@@ -148,5 +153,45 @@ public class Teacher {
             studentList.remove(index);
         }
     }
-
+  public void saveCLOsData() throws IOException{
+        try (FileWriter fw = new FileWriter("clos.txt")) {
+            for(int i = 0 ; i < closList.size() ; i++){
+                
+                fw.write(closList.get(i).getType() + ":" + closList.get(i).getDecription());
+                fw.write("\n");
+            }
+            fw.flush();
+            fw.close();
+        }
+   
+  
+  }
+  public void loadCLOsData(){
+       
+            try {
+                
+                CLOs clos = new CLOs();
+                FileReader fr = null ;
+                try {
+                    fr = new FileReader("clos.txt"); 
+                } catch (FileNotFoundException ex) {
+                    Logger.getLogger(Teacher.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                BufferedReader br = new BufferedReader(fr);
+                String line = br.readLine();
+                while(line != null){
+                    
+                    String toks[] = line.split(":");
+                    clos.setType(toks[0]);
+                    clos.setDecription(toks[1]);
+                    closList.add(clos);
+                }
+                
+                fr.close();
+                
+            } catch (IOException ex) {
+                Logger.getLogger(Teacher.class.getName()).log(Level.SEVERE, null, ex);
+            }
+       
+  }
 }

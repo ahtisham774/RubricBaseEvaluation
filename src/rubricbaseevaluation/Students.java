@@ -19,13 +19,13 @@ public class Students {
      private String gender ;
      private String category ;
      private String section ;
-     private ArrayList<Integer> obtain_marks = new ArrayList<>();
+     private ArrayList<Double> obtain_marks = new ArrayList<>();
 
-    public ArrayList<Integer> getObtain_marks() {
+    public ArrayList<Double> getObtain_marks() {
         return obtain_marks;
     }
 
-    public void setObtain_marks(int obtain_marks) {
+    public void setObtain_marks(double obtain_marks) {
         this.obtain_marks.add(obtain_marks);
     }
 

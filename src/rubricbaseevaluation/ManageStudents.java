@@ -37,8 +37,8 @@ public class ManageStudents extends javax.swing.JFrame {
         buttonGroup2 = new javax.swing.ButtonGroup();
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        close_btn = new javax.swing.JButton();
+        minimize_btn = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
@@ -46,7 +46,7 @@ public class ManageStudents extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         fname = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        regNoField = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         DateChooser = new com.toedter.calendar.JDateChooser();
         jLabel6 = new javax.swing.JLabel();
@@ -55,10 +55,10 @@ public class ManageStudents extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         A1 = new javax.swing.JRadioButton();
         A2 = new javax.swing.JRadioButton();
-        jButton3 = new javax.swing.JButton();
+        enter_student_btn = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
         secComboBox = new javax.swing.JComboBox<>();
-        button1 = new java.awt.Button();
+        next_btn = new java.awt.Button();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Manage Students");
@@ -69,20 +69,20 @@ public class ManageStudents extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Segoe Print", 1, 12)); // NOI18N
         jLabel1.setText("Manage Students");
 
-        jButton1.setBackground(new java.awt.Color(255, 0, 0));
-        jButton1.setText("X");
-        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        close_btn.setBackground(new java.awt.Color(255, 0, 0));
+        close_btn.setText("X");
+        close_btn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        close_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                close_btnActionPerformed(evt);
             }
         });
 
-        jButton2.setText("-");
-        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        minimize_btn.setText("-");
+        minimize_btn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        minimize_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                minimize_btnActionPerformed(evt);
             }
         });
 
@@ -94,17 +94,17 @@ public class ManageStudents extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton2)
+                .addComponent(minimize_btn)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1))
+                .addComponent(close_btn))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jButton2)
-                    .addComponent(jButton1))
+                    .addComponent(minimize_btn)
+                    .addComponent(close_btn))
                 .addGap(0, 4, Short.MAX_VALUE))
         );
 
@@ -160,13 +160,13 @@ public class ManageStudents extends javax.swing.JFrame {
         A2.setText("A2");
         A2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        jButton3.setBackground(new java.awt.Color(255, 255, 255));
-        jButton3.setFont(new java.awt.Font("Segoe Print", 0, 11)); // NOI18N
-        jButton3.setText("Ok");
-        jButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        enter_student_btn.setBackground(new java.awt.Color(255, 255, 255));
+        enter_student_btn.setFont(new java.awt.Font("Segoe Print", 0, 11)); // NOI18N
+        enter_student_btn.setText("Ok");
+        enter_student_btn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        enter_student_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                enter_student_btnActionPerformed(evt);
             }
         });
 
@@ -176,6 +176,11 @@ public class ManageStudents extends javax.swing.JFrame {
         secComboBox.setFont(new java.awt.Font("Segoe Print", 0, 11)); // NOI18N
         secComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "A", "B", "C" }));
         secComboBox.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        secComboBox.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                secComboBoxMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -203,7 +208,7 @@ public class ManageStudents extends javax.swing.JFrame {
                                     .addComponent(jLabel7))
                                 .addGap(18, 18, 18)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextField3)
+                                    .addComponent(regNoField)
                                     .addComponent(DateChooser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addGroup(jPanel2Layout.createSequentialGroup()
                                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -218,7 +223,7 @@ public class ManageStudents extends javax.swing.JFrame {
                                         .addGap(0, 88, Short.MAX_VALUE))
                                     .addComponent(secComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
-                        .addComponent(jButton3)))
+                        .addComponent(enter_student_btn)))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -235,7 +240,7 @@ public class ManageStudents extends javax.swing.JFrame {
                 .addGap(26, 26, 26)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(regNoField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel5)
@@ -258,17 +263,17 @@ public class ManageStudents extends javax.swing.JFrame {
                             .addComponent(jLabel7))
                         .addGap(51, 51, 51))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(enter_student_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(40, 40, 40))))
         );
 
-        button1.setBackground(new java.awt.Color(255, 204, 204));
-        button1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        button1.setFont(new java.awt.Font("Segoe Print", 0, 12)); // NOI18N
-        button1.setLabel("Next");
-        button1.addActionListener(new java.awt.event.ActionListener() {
+        next_btn.setBackground(new java.awt.Color(255, 204, 204));
+        next_btn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        next_btn.setFont(new java.awt.Font("Segoe Print", 0, 12)); // NOI18N
+        next_btn.setLabel("Next");
+        next_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                button1ActionPerformed(evt);
+                next_btnActionPerformed(evt);
             }
         });
 
@@ -277,7 +282,7 @@ public class ManageStudents extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(button1, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(next_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 467, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -287,8 +292,8 @@ public class ManageStudents extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(button1, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(21, 21, 21)
+                .addComponent(next_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(22, 22, 22)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -312,24 +317,24 @@ public class ManageStudents extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void minimize_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_minimize_btnActionPerformed
         // TODO add your handling code here:
         this.setState(JFrame.ICONIFIED);
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_minimize_btnActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void close_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_close_btnActionPerformed
         // TODO add your handling code here:
         int i = JOptionPane.showConfirmDialog(null, "Do you want To Exit the program", "Confirm", 0, 1);
         if (i == 0) {
             System.exit(0);
         }
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_close_btnActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void enter_student_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enter_student_btnActionPerformed
         // TODO add your handling code here:
         String std_name = name.getText();
         String fthr_name = fname.getText();
-        String regNO = jTextField3.getText();
+        String regNO = regNoField.getText();
 
         String date_of_Birth = "";
         SimpleDateFormat sdf = null;
@@ -378,18 +383,25 @@ public class ManageStudents extends javax.swing.JFrame {
             this.setVisible(false);
             ViewStudents view = new ViewStudents();
             view.setVisible(true);
-            /* MarksEvaluation  marks = new MarksEvaluation();
-             marks.setVisible(true);*/
+           
         }
 
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_enter_student_btnActionPerformed
 
-    private void button1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button1ActionPerformed
+    private void next_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_next_btnActionPerformed
         // TODO add your handling code here:
         this.setVisible(false);
         MarksEvaluation evaluation = new MarksEvaluation();
         evaluation.setVisible(true);
-    }//GEN-LAST:event_button1ActionPerformed
+    }//GEN-LAST:event_next_btnActionPerformed
+
+    private void secComboBoxMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_secComboBoxMouseClicked
+        // TODO add your handling code here:
+          if(Teacher.getInstance().seearchStudent(regNoField.getText()) != null){
+         JOptionPane.showMessageDialog(null,regNoField.getText()+"  Alredy Exist" , "Warning", 2);
+        }
+       
+    }//GEN-LAST:event_secComboBoxMouseClicked
 
     /**
      * @param args the command line arguments
@@ -430,14 +442,12 @@ public class ManageStudents extends javax.swing.JFrame {
     private javax.swing.JRadioButton A1;
     private javax.swing.JRadioButton A2;
     private com.toedter.calendar.JDateChooser DateChooser;
-    private java.awt.Button button1;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
+    private javax.swing.JButton close_btn;
+    private javax.swing.JButton enter_student_btn;
     private javax.swing.JRadioButton female;
     private javax.swing.JTextField fname;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -449,9 +459,11 @@ public class ManageStudents extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JTextField jTextField3;
     private javax.swing.JRadioButton male;
+    private javax.swing.JButton minimize_btn;
     private javax.swing.JTextField name;
+    private java.awt.Button next_btn;
+    private javax.swing.JTextField regNoField;
     private javax.swing.JComboBox<String> secComboBox;
     // End of variables declaration//GEN-END:variables
 }
