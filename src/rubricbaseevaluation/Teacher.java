@@ -70,7 +70,7 @@ public class Teacher {
         studentList = new ArrayList<>();
         assessmentList = new ArrayList<>();
         assessment = new Assesments();
-       loadCLOsData();
+      
     }
 
     public static Teacher getInstance() {
