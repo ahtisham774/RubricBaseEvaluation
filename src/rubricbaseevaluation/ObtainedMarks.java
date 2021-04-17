@@ -6,6 +6,7 @@
 package rubricbaseevaluation;
 
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -209,14 +210,22 @@ public class ObtainedMarks extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        this.setVisible(false);
+         int i = JOptionPane.showConfirmDialog(null, "Do you want To Exit the program", "Confirm", 0, 1);
+        if (i == 0) {
+            System.exit(0);
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-        this.setVisible(false);
-        Result result = new Result();
-        result.setVisible(true);
+       int option = JOptionPane.showConfirmDialog(null, "Do you want to save data ?", "Confirm", 1, 1);
+       if(option == 0){
+        Teacher.getInstance().saveCLOsData();
+        Teacher.getInstance().saveStudentData();
+       }
+       else if(option == 1){
+        System.exit(0);
+       }
     }//GEN-LAST:event_jButton3ActionPerformed
 
     /**

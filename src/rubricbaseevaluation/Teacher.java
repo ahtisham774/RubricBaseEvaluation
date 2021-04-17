@@ -65,12 +65,12 @@ public class Teacher {
     }
 
     private Teacher() {
-        
+
         closList = new ArrayList<>();
         studentList = new ArrayList<>();
         assessmentList = new ArrayList<>();
         assessment = new Assesments();
-       loadCLOsData();
+
     }
 
     public static Teacher getInstance() {
@@ -153,45 +153,84 @@ public class Teacher {
             studentList.remove(index);
         }
     }
-  public void saveCLOsData() throws IOException{
-        try (FileWriter fw = new FileWriter("clos.txt")) {
-            for(int i = 0 ; i < closList.size() ; i++){
-                
+
+    public void saveCLOsData() {
+        FileWriter fw = null;
+        try {
+            fw = new FileWriter("clos.txt");
+            for (int i = 0; i < closList.size(); i++) {
+
                 fw.write(closList.get(i).getType() + ":" + closList.get(i).getDecription());
                 fw.write("\n");
             }
             fw.flush();
             fw.close();
-        }
-   
-  
-  }
-  public void loadCLOsData(){
-       
+        } catch (IOException ex) {
+            Logger.getLogger(Teacher.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
             try {
-                
-                CLOs clos = new CLOs();
-                FileReader fr = null ;
-                try {
-                    fr = new FileReader("clos.txt"); 
-                } catch (FileNotFoundException ex) {
-                    Logger.getLogger(Teacher.class.getName()).log(Level.SEVERE, null, ex);
-                }
-                BufferedReader br = new BufferedReader(fr);
-                String line = br.readLine();
-                while(line != null){
-                    
-                    String toks[] = line.split(":");
-                    clos.setType(toks[0]);
-                    clos.setDecription(toks[1]);
-                    closList.add(clos);
-                }
-                
-                fr.close();
-                
+                fw.close();
             } catch (IOException ex) {
                 Logger.getLogger(Teacher.class.getName()).log(Level.SEVERE, null, ex);
             }
-       
-  }
+        }
+    }
+
+    public void saveStudentData() {
+        FileWriter fw = null;
+        try {
+            fw = new FileWriter("student.txt");
+            for (int i = 0; i < closList.size(); i++) {
+
+                fw.write("Student Name : " + studentList.get(i).getStudent_name());
+                fw.write("\n" + "Registration No :" + studentList.get(i).getRegisterationNO());
+                fw.write("\n" + "Date Of Birth :" + studentList.get(i).getDate_Of_Birth());
+                fw.write("\n" + "Category  :" + studentList.get(i).getCategory());
+                fw.write("\n" + "Section:" + studentList.get(i).getSection());
+                fw.write("\n" + "obtained marks:");
+                for (int j = 0; j < studentList.get(i).getObtain_marks().size(); j++) {
+                    fw.write(studentList.get(i).getObtain_marks().get(j) + " ");
+                }
+            }
+            fw.flush();
+            fw.close();
+        } catch (IOException ex) {
+            Logger.getLogger(Teacher.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+                fw.close();
+            } catch (IOException ex) {
+                Logger.getLogger(Teacher.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }
+
+    public void loadCLOsData() {
+
+        try {
+
+            CLOs clos = new CLOs();
+            FileReader fr = null;
+            try {
+                fr = new FileReader("clos.txt");
+            } catch (FileNotFoundException ex) {
+                Logger.getLogger(Teacher.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            BufferedReader br = new BufferedReader(fr);
+            String line = br.readLine();
+            while (line != null) {
+
+                String toks[] = line.split(":");
+                clos.setType(toks[0]);
+                clos.setDecription(toks[1]);
+                closList.add(clos);
+            }
+
+            fr.close();
+
+        } catch (IOException ex) {
+            Logger.getLogger(Teacher.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
 }

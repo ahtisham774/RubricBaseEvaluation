@@ -5,10 +5,7 @@
  */
 package rubricbaseevaluation;
 
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -52,7 +49,6 @@ public class CLOsView extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         viewCLOsTable = new javax.swing.JTable();
         viewClos_ok_btn = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Manage CLOs");
@@ -148,13 +144,6 @@ public class CLOsView extends javax.swing.JFrame {
                 .addComponent(viewClos_ok_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        jButton1.setText("jButton1");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -163,16 +152,11 @@ public class CLOsView extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(19, 19, 19))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addComponent(jButton1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(29, 29, 29)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -210,20 +194,14 @@ public class CLOsView extends javax.swing.JFrame {
     }//GEN-LAST:event_close_btnActionPerformed
 
     private void viewClos_ok_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewClos_ok_btnActionPerformed
-        try {
+      
             // TODO add your handling code here:
             this.hide();
             ManageCLOs clos = new ManageCLOs();
             clos.jLabel6.setText("If you  want to enter more CLOs then Enter Other wise Press Next");
             clos.setVisible(true);
-        } catch (IOException ex) {
-            Logger.getLogger(CLOsView.class.getName()).log(Level.SEVERE, null, ex);
-        }
+       
     }//GEN-LAST:event_viewClos_ok_btnActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-     
-    }//GEN-LAST:event_jButton1ActionPerformed
     public void addRowData(ArrayList<CLOs> c){
         Object rowData[] = new Object[2];
         for(int i =  0 ; i < c.size();i++){
@@ -272,7 +250,6 @@ public class CLOsView extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton close_btn;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
